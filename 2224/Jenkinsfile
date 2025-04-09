@@ -13,8 +13,8 @@ pipeline {
 
     environment {
         // 본인의 username으로 하실 분은 수정해주세요.
-        DOCKERHUB_USERNAME = '1pro'
-        GITHUB_URL = 'https://github.com/k8s-1pro/kubernetes-anotherclass-sprint2.git'
+        DOCKERHUB_USERNAME = 'keemym104'
+        GITHUB_URL = 'https://github.com/keemym104/kubernetes-anotherclass-sprint2.git'
 
         // [2] 잦은 배포 - versioning 무의미, 계획된 배포 - versioning 필수
         APP_VERSION = '1.0.1'
@@ -30,7 +30,7 @@ pipeline {
         stage('소스파일 체크아웃') {
             steps {
                 // 소스코드를 가져올 Github 주소
-                git branch: 'main', url: 'https://github.com/k8s-1pro/kubernetes-anotherclass-api-tester.git'
+                git branch: 'main', url: 'https://github.com/keemym104/kubernetes-anotherclass-api-tester.git'
             }
         }
 
@@ -63,7 +63,7 @@ pipeline {
                         sh "echo " + '${PASSWORD}' + " | docker login -u " + '${USERNAME}' + " --password-stdin"
                     }
 
-                    if (DOCKERHUB_USERNAME == "1pro") {
+                    if (DOCKERHUB_USERNAME == "keemym104") {
                         TAG = "1.0.1-231220.175735"  // 1pro useranme 수강생을 위한 고정 태그명
 
                         // 도커 빌드
